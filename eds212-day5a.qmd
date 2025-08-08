@@ -1,0 +1,53 @@
+---
+title: "eds212-day5a"
+author: "Emily Miller"
+format: html
+editor: visual
+execute:
+  warning: false
+---
+
+## Import libraries
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(dplyr)
+
+```
+
+```{r}
+#| include: false
+# Return the first and last 6 lines of starwars
+head(starwars)
+tail(starwars)
+# Return the dimsions of the starwars df
+dim(starwars)
+# Return summary statistics
+summary(starwars)
+
+
+```
+
+```{r}
+#| fig-cap: "BMI of starwars characters"
+ggplot(starwars, aes(x = height, y = mass)) +
+  geom_point()
+```
+
+```{r}
+ggplot(starwars, aes(x = height)) +
+  geom_histogram(color = "red", fill = "purple")
+```
+
+```{r}
+sw_height_mean <- mean(starwars$height, na.rm = TRUE)
+sw_height_median <- median(starwars$height, na.rm = TRUE)
+sw_height_var <- var(starwars$height, na.rm = TRUE)
+sw_height_sd <- sd(starwars$height, na.rm = TRUE)
+
+
+```
+
+-   The mean height of starwars caracters is `r sw_height_mean`
